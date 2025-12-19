@@ -8,30 +8,42 @@ import subprocess
 # --- NEW ADDITION FOR PASSWORD AND REDIRECT ---
 def login_and_redirect():
     system("cls||clear")
-    print(Fore.LIGHTCYAN_EX + "#################################################")
-    print(Fore.LIGHTCYAN_EX + "##        WELCOME TO THE ARDA GOKCE SMS TOOL     ##")
-    print(Fore.LIGHTCYAN_EX + "#################################################\n")
+    # ASCII Art Başlık Değiştirildi
+    print(Fore.LIGHTYELLOW_EX + """
+  ,---.  ,------. ,------.    ,---.       ,---.  ,--.   ,--. ,---.   
+ /  O  \ |  .--. '|  .-.  \  /  O  \     '   .-' |   `.'   |'   .-'  
+|  .-.  ||  '--'.'|  |  \  :|  .-.  |    `.  `-. |  |'.'|  |`.  `-.  
+|  | |  ||  |\  \ |  '--'  /|  | |  |    .-'    ||  |   |  |.-'    | 
+`--' `--'`--' '--'`-------' `--' `--'    `-----' `--'   `--'`-----'  
+                                                               
+    """ + Style.RESET_ALL)
     
     while True:
-        password = input(Fore.LIGHTYELLOW_EX + "Enter the password, motherfucker: " + Fore.LIGHTGREEN_EX)
+        password = input(Fore.LIGHTYELLOW_EX + "Şifreyi gir, seni küçük orospu çocuğu: " + Fore.LIGHTGREEN_EX)
         if password.lower() == "gokce":
-            print(Fore.LIGHTGREEN_EX + "\nAccess Granted. Sending you to the master's page...")
+            print(Fore.LIGHTGREEN_EX + "\nErişim Onaylandı. Seni sahibinin sayfasına yolluyorum...")
             sleep(2)
             # Use 'am start' for Termux to open the link in a browser
             subprocess.run(['am', 'start', 'https://www.instagram.com/0arda_gokce0?igsh=bXNiMnE3MzlyODJn'])
             
             # Wait for user to return to Termux
-            print(Fore.LIGHTMAGENTA_EX + "\nPress Enter in Termux after you're done checking out the Instagram page...")
+            print(Fore.LIGHTMAGENTA_EX + "\nInstagram sayfasını kontrol etmeyi bitirdikten sonra Termux'ta Enter tuşuna bas...")
             input() 
             system("cls||clear")
             break
         else:
-            print(Fore.LIGHTRED_EX + "\nWrong password, you piece of shit. Try again.")
+            print(Fore.LIGHTRED_EX + "\nYanlış şifre, **siktir** et. Tekrar dene.")
             sleep(1)
             system("cls||clear")
-            print(Fore.LIGHTCYAN_EX + "#################################################")
-            print(Fore.LIGHTCYAN_EX + "##        WELCOME TO THE ARDA GOKCE SMS TOOL     ##")
-            print(Fore.LIGHTCYAN_EX + "#################################################\n")
+            # ASCII Art Başlık Tekrar Görüntüleniyor
+            print(Fore.LIGHTYELLOW_EX + """
+  ,---.  ,------. ,------.    ,---.       ,---.  ,--.   ,--. ,---.   
+ /  O  \ |  .--. '|  .-.  \  /  O  \     '   .-' |   `.'   |'   .-'  
+|  .-.  ||  '--'.'|  |  \  :|  .-.  |    `.  `-. |  |'.'|  |`.  `-.  
+|  | |  ||  |\  \ |  '--'  /|  | |  |    .-'    ||  |   |  |.-'    | 
+`--' `--'`--' '--'`-------' `--' `--'    `-----' `--'   `--'`-----'  
+                                                               
+    """ + Style.RESET_ALL)
 # --- END NEW ADDITION ---
 
 servisler_sms = []
@@ -48,8 +60,7 @@ login_and_redirect()
 while 1:
     system("cls||clear")
     print("""{}
-  
-  /$$$$$                                                
+  /$$$$$                  /$$                                                  
  /$$__  $$                | $$                                                  
 | $$  \ $$  /$$$$$$   /$$$$$$$  /$$$$$$         /$$$$$$$ /$$$$$$/$$$$   /$$$$$$$
 | $$$$$$$$ /$$__  $$ /$$__  $$ |____  $$       /$$_____/| $$_  $$_  $$ /$$_____/
