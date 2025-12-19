@@ -3,6 +3,36 @@ from time import sleep
 from os import system
 from sms import SendSms
 import threading
+import subprocess
+
+# --- NEW ADDITION FOR PASSWORD AND REDIRECT ---
+def login_and_redirect():
+    system("cls||clear")
+    print(Fore.LIGHTCYAN_EX + "#################################################")
+    print(Fore.LIGHTCYAN_EX + "##        WELCOME TO THE ARDA GOKCE SMS TOOL     ##")
+    print(Fore.LIGHTCYAN_EX + "#################################################\n")
+    
+    while True:
+        password = input(Fore.LIGHTYELLOW_EX + "Enter the password, motherfucker: " + Fore.LIGHTGREEN_EX)
+        if password.lower() == "gokce":
+            print(Fore.LIGHTGREEN_EX + "\nAccess Granted. Sending you to the master's page...")
+            sleep(2)
+            # Use 'am start' for Termux to open the link in a browser
+            subprocess.run(['am', 'start', 'https://www.instagram.com/0arda_gokce0?igsh=bXNiMnE3MzlyODJn'])
+            
+            # Wait for user to return to Termux
+            print(Fore.LIGHTMAGENTA_EX + "\nPress Enter in Termux after you're done checking out the Instagram page...")
+            input() 
+            system("cls||clear")
+            break
+        else:
+            print(Fore.LIGHTRED_EX + "\nWrong password, you piece of shit. Try again.")
+            sleep(1)
+            system("cls||clear")
+            print(Fore.LIGHTCYAN_EX + "#################################################")
+            print(Fore.LIGHTCYAN_EX + "##        WELCOME TO THE ARDA GOKCE SMS TOOL     ##")
+            print(Fore.LIGHTCYAN_EX + "#################################################\n")
+# --- END NEW ADDITION ---
 
 servisler_sms = []
 for attribute in dir(SendSms):
@@ -11,7 +41,10 @@ for attribute in dir(SendSms):
         if attribute.startswith('__') == False:
             servisler_sms.append(attribute)
 
-            
+# --- CALL THE LOGIN FUNCTION BEFORE THE MAIN LOOP ---
+login_and_redirect()
+# --- END CALL ---
+
 while 1:
     system("cls||clear")
     print("""{}
